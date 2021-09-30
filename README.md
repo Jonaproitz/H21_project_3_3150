@@ -1,1 +1,2 @@
-# H21_project_3_3150
+# FYS3150
+## Project 3
