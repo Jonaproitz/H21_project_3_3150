@@ -19,6 +19,8 @@ public:
     // Method that returns the charge of a particle
     int charge();
 
+    // Method that returns the mass of a particle
+    double mass();
 };
 
 #endif
