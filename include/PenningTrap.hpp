@@ -11,5 +11,7 @@ class PenningTrap{
         // Add a particle to the trap
         void add_particle(Particle particles_in);
 
+        // External electric field at point r=(x,y,z)
+        arma::vec external_E_field(arma::vec r);
         
 };
