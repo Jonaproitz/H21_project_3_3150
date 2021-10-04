@@ -55,3 +55,11 @@ arma::vec PenningTrap::total_force(int i){
     F = total_force_external(i) + total_force_particles(i);
     return F;
 }
+
+void PenningTrap::evolve_RK4(double dt){
+    arma::vec a;
+    for (int i = 0; i < particles.size(); i++){
+        a = 1/particles[i].mass() * total_force(i);
+
+    }
+}
