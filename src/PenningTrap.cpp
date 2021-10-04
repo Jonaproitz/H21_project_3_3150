@@ -49,3 +49,9 @@ arma::vec PenningTrap::total_force_particles(int i){
     }
     return f_tot;
 }
+
+arma::vec PenningTrap::total_force(int i){
+    arma::vec F;
+
+    return F;
+}
