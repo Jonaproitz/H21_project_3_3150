@@ -4,6 +4,7 @@
 
 class PenningTrap{
     private:
+        std::vector<Particle> particles;
 
     public:
         // Constructor
