@@ -1,0 +1,4 @@
+
+#include "PenningTrap.hpp"
+
+//Constructor
