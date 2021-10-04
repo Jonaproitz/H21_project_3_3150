@@ -16,6 +16,6 @@ arma::vec PenningTrap::external_E_field(arma::vec r){
     arma::vec E;
     double x = r[0], y = r[1], z = r[2];
     E = {-2*x, -2*y, 4*z};
-    E = V0_/(2.*d_*d_) * E;
+    E = -V0_/(2.*d_*d_) * E;
     return E;
 }
