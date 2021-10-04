@@ -6,6 +6,7 @@ class PenningTrap{
     private:
 
     public:
+        // Constructor
         PenningTrap(double B0_in, double V0_in, double d_in);
 
         // Add a particle to the trap
