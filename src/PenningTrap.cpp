@@ -52,6 +52,6 @@ arma::vec PenningTrap::total_force_particles(int i){
 
 arma::vec PenningTrap::total_force(int i){
     arma::vec F;
-
+    F = total_force_external(i) + total_force_particles(i);
     return F;
 }
