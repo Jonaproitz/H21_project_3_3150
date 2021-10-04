@@ -28,8 +28,8 @@ arma::vec PenningTrap::external_B_field(arma::vec r){
 
 arma::vec PenningTrap::force_particle(int i, int j){
     double k_e = 1.38935333e5;
-    arma::vec f, pos_i = particles[i].position(), pos_j = particles[j].position();
-    f = k_e * particles[i].charge() * particles[j].charge() * (
+    arma::vec f, pos_i = particles[i].position, pos_j = particles[j].position;
+    f = k_e * particles[i].charge * particles[j].charge * (
         pos_i - pos_j) / pow(arma::norm(pos_i - pos_j), 3.);
     return f;
 }
