@@ -72,5 +72,6 @@ void PenningTrap::evolve_forward_Euler(double dt){
     }
     for (int i = 0; i < particles.size(); i++){
         particles[i].velocity = V.col(i);
+        particles[i].position = particles[i].position + particles[i].velocity*dt;
     }
 }
