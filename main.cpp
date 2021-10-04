@@ -8,8 +8,12 @@ int main(){
 
     // Add particle
     arma::vec pos = {1, 1, 1}, vel = {-1, -1, -1};
-    Particle particle1(1, 1, pos, vel);
-    std::cout << particle1.position() << std::endl;
+    Particle particle_1(1, 1, pos, vel);
+    my_trap.add_particle(particle_1);
+    std::cout << my_trap.particles[0].velocity() << std::endl;
+
+    my_trap.evolve_forward_Euler(1e-2);
+    std::cout << my_trap.particles[0].velocity() << std::endl;
 
     return 0;
 }
