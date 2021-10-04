@@ -7,6 +7,10 @@
 class Particle{
 private:
   // Declaration of variables only accessible from within the class
+    int charge_;
+    double mass_;
+    arma::vec position_;
+    arma::vec velocity_;
 
 public:
   // Declaration of constructor
