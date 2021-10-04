@@ -9,6 +9,7 @@
 
 class PenningTrap{
     private:
+        double B0_, V0_, d_;
         std::vector<Particle> particles;
 
     public:
