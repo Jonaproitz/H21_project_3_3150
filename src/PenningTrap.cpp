@@ -19,3 +19,9 @@ arma::vec PenningTrap::external_E_field(arma::vec r){
     E = -V0_/(2.*d_*d_) * E;
     return E;
 }
+
+arma::vec PenningTrap::external_B_field(arma::vec r){
+    arma::vec B;
+    B = {0, 0, B0_};
+    return B;
+}
