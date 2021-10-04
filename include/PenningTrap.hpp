@@ -6,5 +6,7 @@ class PenningTrap{
     private:
 
     public:
-        PenningTrap(double B0_in, double V0_in, double d_in, std::vector<Particle> particles_in);
+        PenningTrap(double B0_in, double V0_in, double d_in);
+
+        void add_particle(std::vector<Particle> particles_in);
 };
