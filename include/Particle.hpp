@@ -24,7 +24,9 @@ public:
 
     // Method that returns positoon of particle
     arma::vec position();
-    
+
+    // Method that returns velocity of particle
+    arma::vec velocity();
 };
 
 #endif
