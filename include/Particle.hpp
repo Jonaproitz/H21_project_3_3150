@@ -21,6 +21,10 @@ public:
 
     // Method that returns the mass of a particle
     double mass();
+
+    // Method that returns positoon of particle
+    arma::vec position();
+    
 };
 
 #endif
