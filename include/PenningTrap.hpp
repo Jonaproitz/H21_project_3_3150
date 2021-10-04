@@ -1,7 +1,7 @@
 
 
-#ifndef __LotteryMachine_hpp__  
-#define __LotteryMachine_hpp__
+#ifndef __PenningTrap_hpp__  
+#define __PenningTrap_hpp__
 
 
 #include "Particle.hpp"
