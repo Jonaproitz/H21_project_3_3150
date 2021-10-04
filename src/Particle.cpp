@@ -8,5 +8,3 @@ Particle::Particle(int charge_in, double mass_in, arma::vec position_in, arma::v
     position = position_in;
     velocity = velocity_in;
 }
-
-}
