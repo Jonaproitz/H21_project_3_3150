@@ -2,12 +2,12 @@
 #include "PenningTrap.hpp"
 
 //Constructor
-PenningTrap::PenningTrap(double B0_in, double V0_in, double d_in){
+PenningTrap::PenningTrap(double B0_in, double V0_in, double d_in, std::vector<Particle> particle){
     double B0 = B0_in;
     double V0_in;
     double d = d_in;
 }
 
 void PenningTrap::add_particle(Particle particle_in){
-    
+
 }

@@ -7,7 +7,7 @@ class PenningTrap{
 
     public:
         // Constructor
-        PenningTrap(double B0_in, double V0_in, double d_in);
+        PenningTrap(double B0_in, double V0_in, double d_in, std::vector<Particle> particle);
 
         // Add a particle to the trap
         void add_particle(Particle particles_in);
