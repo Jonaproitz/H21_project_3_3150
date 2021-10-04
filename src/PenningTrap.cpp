@@ -2,7 +2,7 @@
 #include "PenningTrap.hpp"
 
 //Constructor
-PenningTrap::PenningTrap(double B0_in, double V0_in, double d_in, std::vector<Particle> particle){
+PenningTrap::PenningTrap(double B0_in, double V0_in, double d_in, std::vector<Particle> particle_in){
     double B0 = B0_in;
     double V0_in;
     double d = d_in;
