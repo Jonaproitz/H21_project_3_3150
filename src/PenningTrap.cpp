@@ -4,11 +4,10 @@
 //Constructor
 PenningTrap::PenningTrap(double B0_in, double V0_in, double d_in){
     double B0 = B0_in;
-    double V0_in;
+    double V0 = V0_in;
     double d = d_in;
-    std::vector<Particle> Particle;
 }
 
 void PenningTrap::add_particle(Particle particle_in){
-    
+    particles.push_back(particle_in);
 }
