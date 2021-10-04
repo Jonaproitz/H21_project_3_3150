@@ -39,3 +39,10 @@ arma::vec PenningTrap::total_force_external(int i){
     F_ext = external_E_field(particles[i].position()) + external_B_field(particles[i].position());
     return F_ext;
 }
+
+arma::vec PenningTrap::total_force_particles(int i){
+    arma::vec f_tot;
+
+
+    return f_tot;
+}
