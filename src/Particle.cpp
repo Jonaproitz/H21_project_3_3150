@@ -16,3 +16,7 @@ int Particle::charge(){
 double Particle::mass(){
     return mass_;
 }
+
+arma::vec Particle::position(){
+    return position_;
+}
