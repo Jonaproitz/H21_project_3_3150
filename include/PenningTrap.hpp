@@ -22,4 +22,7 @@ class PenningTrap{
 
         // The total force on particle_i from the external fields
         arma::vec total_force_external(int i);
+
+        // The total force on particle_i from the other particles
+        arma::vec total_force_particles(int i);
 };
