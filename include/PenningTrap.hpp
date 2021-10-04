@@ -1,4 +1,9 @@
 
+
+#ifndef __LotteryMachine_hpp__  
+#define __LotteryMachine_hpp__
+
+
 #include "Particle.hpp"
 #include <vector>
 
@@ -37,3 +42,5 @@ class PenningTrap{
         // Evolve the system one time step (dt) using Forward Euler
         void evolve_forward_Euler(double dt);
 };
+
+#endif
