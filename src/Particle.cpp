@@ -13,3 +13,6 @@ int Particle::charge(){
     return charge_;
 }
 
+double Particle::mass(){
+    return mass_;
+}
