@@ -66,8 +66,11 @@ void PenningTrap::evolve_RK4(double dt){
 }
 
 void PenningTrap::evolve_forward_Euler(double dt){
-    arma::mat V = arma::mat(particles.size(), 3);
+    arma::mat V = arma::mat(3, particles.size());
     for (int i = 0; i < particles.size(); i++){
-        V.row(i) = particles[i].velocity + total_force(i) / particles[i].mass * dt;
+        V.col(i) = particles[i].velocity + total_force(i) / particles[i].mass * dt;
+    }
+    for (int i = 0; i < particles.size(); i++){
+        particles[i].velocity = V.col(i);
     }
 }
