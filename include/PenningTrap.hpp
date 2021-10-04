@@ -29,4 +29,7 @@ class PenningTrap{
         // The total force on particle_i from both external fields and other particles
         arma::vec total_force(int i);
 
+        // Evolve the system one time step (dt) using Runge-Kutta 4th order
+        void evolve_RK4(double dt);
+
 };
