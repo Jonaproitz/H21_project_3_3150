@@ -14,4 +14,6 @@ class PenningTrap{
         // External electric field at point r=(x,y,z)
         arma::vec external_E_field(arma::vec r);
         
+        // External magnetic field at point r=(x,y,z)
+        arma::vec external_B_field(arma::vec r);
 };
