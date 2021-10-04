@@ -20,3 +20,7 @@ double Particle::mass(){
 arma::vec Particle::position(){
     return position_;
 }
+
+arma::vec Particle::velocity(){
+    return velocity_;
+}
