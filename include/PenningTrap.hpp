@@ -16,4 +16,7 @@ class PenningTrap{
         
         // External magnetic field at point r=(x,y,z)
         arma::vec external_B_field(arma::vec r);
+
+        // Force on particle_i from particle_j
+        arma::vec force_particle(int i, int j);
 };
