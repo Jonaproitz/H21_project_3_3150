@@ -10,9 +10,12 @@
 class PenningTrap{
     private:
         double B0_, V0_, d_;
-        std::vector<Particle> particles;
+        
 
     public:
+        // Declaration of public memeber variables
+        std::vector<Particle> particles;
+        
         // Constructor
         PenningTrap(double B0_in, double V0_in, double d_in);
 
