@@ -25,3 +25,9 @@ arma::vec PenningTrap::external_B_field(arma::vec r){
     B = {0, 0, B0_};
     return B;
 }
+
+arma::vec PenningTrap::force_particle(int i, int j){
+    arma::vec f;
+    
+    return f;
+}
