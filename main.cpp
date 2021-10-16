@@ -48,9 +48,10 @@ int main(){
     {
         for (int i = 0; i < n; i++){
             ofile << std::setw(width) << std::setprecision(prec) << std::scientific << r.slice(i).col(t_i)(0)
-                << std::setw(width) << std::setprecision(prec) << std::scientific << r.slice(i).col(t_i)(1)
-                << std::setw(width) << std::setprecision(prec) << std::scientific << r.slice(i).col(t_i)(2)
-                << std::endl;
+                  << std::setw(width) << std::setprecision(prec) << std::scientific << r.slice(i).col(t_i)(1)
+                  << std::setw(width) << std::setprecision(prec) << std::scientific << r.slice(i).col(t_i)(2)
+                  << std::setw(width) << std::setprecision(prec) << std::scientific << t[i]
+                  << std::endl;
         }
     }
 
