@@ -57,11 +57,38 @@ arma::vec PenningTrap::total_force(int i){
 }
 
 void PenningTrap::evolve_RK4(double dt){
-    arma::vec k1, k2, k3, k4;
-    arma::mat v = arma::mat(3, particles.size());
+    arma::vec k1_vel = arma::vec(3), k1_pos = arma::vec(3), k2_vel = arma::vec(3), k2_pos = arma::vec(3), k3_vel = arma::vec(3), k3_pos = arma::vec(3), k4_vel = arma::vec(3), k4_pos = arma::vec(3);
+    arma::mat vel = arma::mat(3, particles.size()), pos = arma::mat(3, particles.size());
+
     for (int i = 0; i < particles.size(); i++){
-        k1 = 1/particles[i].mass * total_force(i);
-        
+        vel.col(i) = particles[i].velocity;
+        pos.col(i) = particles[i].position;
+
+        // Calculate k1
+        k1_vel = dt/particles[i].mass * total_force(i);
+        particles[i].velocity = vel.col(i) + k1_vel/2.;
+        k1_pos = dt * particles[i].velocity;
+
+        // Calculate k2
+        particles[i].position = pos.col(i) + k1_pos/2.;
+        k2_vel = dt/particles[i].mass * total_force(i);
+        particles[i].velocity = vel.col(i) + k2_vel/2.;
+        k2_pos = dt * particles[i].velocity;
+
+        // Calculate k3
+        particles[i].position = pos.col(i) + k2_pos/2.;
+        k3_vel = dt/particles[i].mass * total_force(i);
+        particles[i].velocity = vel.col(i) + k3_vel;
+        k3_pos = dt * particles[i].velocity;
+
+        // Calculate k4
+        particles[i].position = pos.col(i) + k3_pos/2.;
+        k4_vel = dt/particles[i].mass * total_force(i);
+        particles[i].velocity = vel.col(i) + k3_vel;
+        k4_pos = dt * particles[i].velocity;
+
+        vel.col(i) = vel.col(i) + 1./6. * (k1_vel + 2*k2_vel + 2*k3_vel + k4_vel);
+        pos.col(i) = pos.col(i) + 1./6. * (k1_pos + 2*k2_pos + 2*k3_pos + k4_pos);
     }
 }
 
