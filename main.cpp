@@ -16,6 +16,7 @@ int main(){
     int T = 100;
     double dt = 1e-2;
     int N = T / dt + 1;
+    arma::vec t = arma::linspace(0, T, N);
     arma::cube v = arma::cube(3, N, n), r = arma::cube(3, N, n);
     for (int j = 0; j < n; j++){
         v.slice(j).col(0) = my_trap.particles[j].velocity;
