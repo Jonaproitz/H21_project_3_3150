@@ -1,5 +1,6 @@
 
 #include "PenningTrap.hpp"
+#include <iomanip>
 
 int main(){
     // Initialize Penning trap.
@@ -34,7 +35,27 @@ int main(){
         }
     }
 
-    r.slice(0).save("positions.bin");
+    // Write positions to file
+    std::string filename = "positions.txt";
+    std::ofstream ofile;
+    ofile.open(filename);
+
+    // Set width and precision
+    int width = 18;
+    int prec = 10;
+
+    for (int t_i = 0; t_i < N; t_i++)
+    {
+        for (int i = 0; i < n; i++){
+            ofile << std::setw(width) << std::setprecision(prec) << std::scientific << r.slice(i).col(t_i)(0)
+                << std::setw(width) << std::setprecision(prec) << std::scientific << r.slice(i).col(t_i)(1)
+                << std::setw(width) << std::setprecision(prec) << std::scientific << r.slice(i).col(t_i)(2)
+                << std::endl;
+        }
+    }
+
+    // Close output file
+    ofile.close();
 
     return 0;
 }
