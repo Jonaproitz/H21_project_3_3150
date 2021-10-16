@@ -3,12 +3,8 @@ import matplotlib.pyplot as plt
 import pyarma as pa
 
 
-filename = "positions.bin"
-
-R = pa.mat()
-R.load(filename)
-
-x, y, z = np.array(R)
+r = np.loadtxt("positions.txt")
+x, y, z = np.transpose(r)
 
 plt.figure()
 
