@@ -67,28 +67,21 @@ void PenningTrap::evolve_RK4(double dt){
         // Calculate k1
         k1_vel = dt/particles[i].mass * total_force(i);
         particles[i].velocity = vel.col(i) + k1_vel/2.;
-        k1_pos = dt * particles[i].velocity;
 
         // Calculate k2
-        particles[i].position = pos.col(i) + k1_pos/2.;
         k2_vel = dt/particles[i].mass * total_force(i);
         particles[i].velocity = vel.col(i) + k2_vel/2.;
-        k2_pos = dt * particles[i].velocity;
 
         // Calculate k3
-        particles[i].position = pos.col(i) + k2_pos/2.;
         k3_vel = dt/particles[i].mass * total_force(i);
         particles[i].velocity = vel.col(i) + k3_vel;
-        k3_pos = dt * particles[i].velocity;
 
         // Calculate k4
-        particles[i].position = pos.col(i) + k3_pos/2.;
         k4_vel = dt/particles[i].mass * total_force(i);
         particles[i].velocity = vel.col(i) + k3_vel;
-        k4_pos = dt * particles[i].velocity;
 
         particles[i].velocity = vel.col(i) + 1./6. * (k1_vel + 2*k2_vel + 2*k3_vel + k4_vel);
-        pos.col(i) = pos.col(i) + 1./6. * (k1_pos + 2*k2_pos + 2*k3_pos + k4_pos);
+        pos.col(i) = pos.col(i) + particles[i].velocity * dt;
     }
     for (int i = 0; i < particles.size(); i++){
         particles[i].position = pos.col(i);
