@@ -19,6 +19,7 @@ int main(){
     arma::cube v = arma::cube(3, N, n), r = arma::cube(3, N, n);
     for (int j = 0; j < n; j++){
         v.slice(j).col(0) = my_trap.particles[j].velocity;
+        r.slice(j).col(0) = my_trap.particles[j].position;
     }
     for (int t_i = 1; t_i < N; t_i++){
         my_trap.evolve_RK4(dt);
