@@ -11,13 +11,22 @@ int main(){
     Particle particle_1(1, 1, pos, vel);
     my_trap.add_particle(particle_1);
 
-    my_trap.evolve_RK4(1e-4);
-    my_trap.particles[0].velocity.print();
+    int n = my_trap.particles.size();
 
-    my_trap.particles[0].velocity = vel;
-    my_trap.particles[0].position = pos;
-    my_trap.evolve_forward_Euler(1e-4);
-    my_trap.particles[0].velocity.print();
+    int T = 10;
+    double dt = 1e-4;
+    int N = T / dt + 1;
+    arma::cube v = arma::cube(3, N, n), r = arma::cube(3, N, n);
+    for (int j = 0; j < n; j++){
+        v.slice(j).col(0) = my_trap.particles[j].velocity;
+    }
+    for (int t_i = 1; t_i < N; t_i++){
+        my_trap.evolve_RK4(dt);
+        for (int i = 0; i < n; i++){
+            v.slice(i).col(t_i) = my_trap.particles[i].velocity;
+            r.slice(i).col(t_i) = my_trap.particles[i].position;
+        }
+    }
 
     return 0;
 }
