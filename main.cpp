@@ -27,7 +27,7 @@ int main(){
             r.slice(i).col(t_i) = my_trap.particles[i].position;
         }
     }
-    r.save("position.bin");
+    r.save("positions.bin");
 
     return 0;
 }
