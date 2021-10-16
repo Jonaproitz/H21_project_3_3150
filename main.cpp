@@ -13,8 +13,8 @@ int main(){
 
     int n = my_trap.particles.size();
 
-    int T = 10;
-    double dt = 1e-4;
+    int T = 100;
+    double dt = 1e-2;
     int N = T / dt + 1;
     arma::cube v = arma::cube(3, N, n), r = arma::cube(3, N, n);
     for (int j = 0; j < n; j++){
@@ -27,6 +27,7 @@ int main(){
             r.slice(i).col(t_i) = my_trap.particles[i].position;
         }
     }
+    r.save("position.bin");
 
     return 0;
 }
