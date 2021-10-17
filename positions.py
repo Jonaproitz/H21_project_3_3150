@@ -12,7 +12,7 @@ def read_data(filename):
         r = np.append(r, [infile[index, 1:]], axis=0)
     return r
 
-
+"""
 r = read_data("positions.txt")
 x, y, z = np.transpose(r[0])
 
@@ -21,3 +21,5 @@ plt.figure()
 plt.plot(z)
 
 plt.show()
+"""
+
