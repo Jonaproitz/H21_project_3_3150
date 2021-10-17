@@ -7,8 +7,8 @@ int main(){
     double B0 = 9.65e1, V0 = 9.65e8, d = 1e4;
     PenningTrap my_trap(B0, V0, d);
 
-    // Add particle
-    arma::vec pos = {1, 1, 1}, vel = {-1, -1, -1};
+    // Add particles
+    arma::vec pos = {0.5, 0, 0}, vel = {0, 0.5, -0.2};
     Particle particle_1(1, 1, pos, vel);
     my_trap.add_particle(particle_1);
 
