@@ -22,3 +22,14 @@ plt.plot(z)
 
 plt.show()
 """
+r = read_data("positions.txt")
+
+#print(r.shape)
+
+r1 = r[0]
+
+r2 = r[1]
+
+plt.plot(np.transpose(r1)[0], np.transpose(r1)[1])
+plt.plot(np.transpose(r2)[0], np.transpose(r2)[1])
+plt.show()
