@@ -44,13 +44,14 @@ int main(){
     int width = 18;
     int prec = 10;
 
-    for (int t_i = 0; t_i < N; t_i++)
-    {
+    //ofile << "Number of particles\n" << n << std::endl;
+    for (int t_i = 0; t_i < N; t_i++){
+        //ofile << "Time\n" << t[t_i] << std::endl;
         for (int i = 0; i < n; i++){
-            ofile << std::setw(width) << std::setprecision(prec) << std::scientific << r.slice(i).col(t_i)(0)
+            ofile << i
+                  << std::setw(width) << std::setprecision(prec) << std::scientific << r.slice(i).col(t_i)(0)
                   << std::setw(width) << std::setprecision(prec) << std::scientific << r.slice(i).col(t_i)(1)
                   << std::setw(width) << std::setprecision(prec) << std::scientific << r.slice(i).col(t_i)(2)
-                  << std::setw(width) << std::setprecision(prec) << std::scientific << t[i]
                   << std::endl;
         }
     }
