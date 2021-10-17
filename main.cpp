@@ -12,6 +12,9 @@ int main(){
     Particle particle_1(1, 1, pos, vel);
     my_trap.add_particle(particle_1);
 
+    Particle particle_2(1, 1, -pos, -vel);
+    my_trap.add_particle(particle_2);
+
     int n = my_trap.particles.size();
 
     int T = 100;
