@@ -22,7 +22,6 @@ int main(){
     double dt = 1e-3;
     int N = T / dt + 1;
     arma::vec t = arma::linspace(0, T, N);
-    arma::cube v = arma::cube(3, N, n), r = arma::cube(3, N, n);
 
 
     // Open file
