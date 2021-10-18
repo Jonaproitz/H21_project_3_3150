@@ -25,21 +25,7 @@ int main(){
     arma::cube v = arma::cube(3, N, n), r = arma::cube(3, N, n);
 
 
-    for (int j = 0; j < n; j++){
-        v.slice(j).col(0) = my_trap.particles[j].velocity;
-        r.slice(j).col(0) = my_trap.particles[j].position;
-    }
-
-
-    for (int t_i = 1; t_i < N; t_i++){
-        my_trap.evolve_RK4(dt);
-        for (int i = 0; i < n; i++){
-            v.slice(i).col(t_i) = my_trap.particles[i].velocity;
-            r.slice(i).col(t_i) = my_trap.particles[i].position;
-        }
-    }
-
-    // Write positions to file
+    // Open file
     std::string filename = "positions.txt";
     std::ofstream ofile;
     ofile.open(filename);
@@ -48,12 +34,14 @@ int main(){
     int width = 18;
     int prec = 10;
 
-    for (int t_i = 0; t_i < N; t_i++){
+    // Complete calculation and write to file
+    for (int t_i = 1; t_i < N; t_i++){
+        my_trap.evolve_RK4(dt);
         for (int i = 0; i < n; i++){
             ofile << i
-                  << std::setw(width) << std::setprecision(prec) << std::scientific << r.slice(i).col(t_i)(0)
-                  << std::setw(width) << std::setprecision(prec) << std::scientific << r.slice(i).col(t_i)(1)
-                  << std::setw(width) << std::setprecision(prec) << std::scientific << r.slice(i).col(t_i)(2)
+                  << std::setw(width) << std::setprecision(prec) << std::scientific << my_trap.particles[i].position(0)
+                  << std::setw(width) << std::setprecision(prec) << std::scientific << my_trap.particles[i].position(1)
+                  << std::setw(width) << std::setprecision(prec) << std::scientific << my_trap.particles[i].position(2)
                   << std::endl;
         }
     }
