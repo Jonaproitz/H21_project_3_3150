@@ -8,17 +8,18 @@ int main(){
     PenningTrap my_trap(B0, V0, d);
 
     // Add particles
-    arma::vec pos = {5, 0, 0}, vel = {0, 2, -5};
-    Particle particle_1(1, 1, pos, vel);
+    arma::vec pos_1 = {5, 0, 0}, vel_1 = {0, 2, -5};
+    Particle particle_1(1, 1, pos_1, vel_1);
     my_trap.add_particle(particle_1);
 
-    Particle particle_2(1, 1, -pos, -vel);
+    arma::vec pos_2 = {1, 3, 0}, vel_2 = {1, -2, 2};
+    Particle particle_2(1, 1, pos_2, vel_2);
     my_trap.add_particle(particle_2);
 
     int n = my_trap.particles.size();
 
     int T = 100;
-    double dt = 1e-2;
+    double dt = 1e-3;
     int N = T / dt + 1;
     arma::vec t = arma::linspace(0, T, N);
     arma::cube v = arma::cube(3, N, n), r = arma::cube(3, N, n);
