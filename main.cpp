@@ -24,10 +24,13 @@ int main(){
     arma::vec t = arma::linspace(0, T, N);
 
 
-    // Open file
-    std::string filename = "positions.txt";
-    std::ofstream ofile;
-    ofile.open(filename);
+    // Open files
+    std::string filename_1 = "positions.txt";
+    std::string filename_2 = "velocities.txt";
+    std::ofstream ofile_1;
+    ofile_1.open(filename_1);
+    std::ofstream ofile_2;
+    ofile_2.open(filename_2);
 
     // Set width and precision
     int width = 18;
@@ -37,16 +40,22 @@ int main(){
     for (int t_i = 1; t_i < N; t_i++){
         my_trap.evolve_RK4(dt);
         for (int i = 0; i < n; i++){
-            ofile << i
-                  << std::setw(width) << std::setprecision(prec) << std::scientific << my_trap.particles[i].position(0)
-                  << std::setw(width) << std::setprecision(prec) << std::scientific << my_trap.particles[i].position(1)
-                  << std::setw(width) << std::setprecision(prec) << std::scientific << my_trap.particles[i].position(2)
-                  << std::endl;
+            ofile_1 << i
+                    << std::setw(width) << std::setprecision(prec) << std::scientific << my_trap.particles[i].position(0)
+                    << std::setw(width) << std::setprecision(prec) << std::scientific << my_trap.particles[i].position(1)
+                    << std::setw(width) << std::setprecision(prec) << std::scientific << my_trap.particles[i].position(2)
+                    << std::endl;
+            ofile_2 << i
+                    << std::setw(width) << std::setprecision(prec) << std::scientific << my_trap.particles[i].velocity(0)
+                    << std::setw(width) << std::setprecision(prec) << std::scientific << my_trap.particles[i].velocity(1)
+                    << std::setw(width) << std::setprecision(prec) << std::scientific << my_trap.particles[i].velocity(2)
+                    << std::endl;
         }
     }
 
     // Close output file
-    ofile.close();
+    ofile_1.close();
+    ofile_2.close();
 
     return 0;
 }
