@@ -12,16 +12,18 @@ def read_data(filename):
         r = np.append(r, infile[index, 1:], axis=0)
     return r
 
-"""
-r = read_data("positions.txt")
-x, y, z = np.transpose(r[0])
+def plot_1_particle():
+    r = read_data("positions.txt")
+    x, y, z = np.transpose(r[0])
 
-plt.figure()
+    plt.figure()
 
-plt.plot(z)
+    plt.plot(z)
 
-plt.show()
-"""
+    plt.show()
+
+
+
 def plot_2_particles():
     r = read_data("positions.txt")
     r1 = r[0]
